@@ -1,0 +1,14 @@
+,0
+stress_score,object
+is_bad_12m,object
+model_1,float64
+model_2,float64
+origination_date,datetime64[ns]
+loan_term,int64
+loan_amount,float64
+age_oldest_account,object
+total_value_of_mortgage,object
+current_utilisation,object
+months_since_2_payments_missed,object
+number_of_credit_searches_last_3_months,object
+is_bad_3m,bool
