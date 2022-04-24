@@ -20,6 +20,7 @@ if __name__ == '__main__':
 
     # See if there are potential on stress_score
     application_stress = application.dropna(subset=["stress_score"]).copy()
+    application_stress.loc[:, ("stress_score")] = application_stress.stress_score.astype(float)
     application_stress.loc[:, ("is_bad_12m")] = application_stress.is_bad_12m.fillna(0).astype(int)
     sns.kdeplot(data=application_stress, x="stress_score", hue="is_bad_12m",
                 common_norm=False, palette=["#8abb9c",  "#e83860"])
@@ -27,6 +28,9 @@ if __name__ == '__main__':
     plt.tight_layout()
     plt.savefig("data/reports/kdeplot_stress_score.png", dpi=180)
     plt.close()
+
+    sns.heatmap(application_stress[["stress_score", "is_bad_12m", "model_1"]].corr(),
+                cmap="Reds_r", annot=True, square=True)
 
     # implement simple ideas for using the stress_score
     y_true = application_stress["is_bad_12m"]
