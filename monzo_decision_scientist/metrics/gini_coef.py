@@ -123,7 +123,7 @@ def get_limits_grafically(df):
             axis.flatten()[i].get_legend().remove()
     plt.subplots_adjust(left=0.07, right=0.99, bottom=0.07, top=0.99, hspace=0.47, wspace=0.15)
     plt.savefig("data/reports/kdeplot_application_by_is_bad_12m.png", dpi=180)
-    plt.show()
+    plt.close()
     return variable_splits
 
 
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     GINI_ALL = compare_gini_from_two_models(y_true, score_1, score_2, index_label="development")
     plot_comparison_gini_comparison(y_true, score_1, score_2)
     plt.savefig("data/reports/Ginis_coefficient.png", dpi=180)
-    plt.show()
+    plt.close()
 
     # filter out-of-time
     monthly_outcome_out_of_time = monthly_outcome[monthly_outcome.date.between(np.datetime64("2019-08-01"),

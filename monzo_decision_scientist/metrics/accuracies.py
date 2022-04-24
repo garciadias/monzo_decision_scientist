@@ -63,7 +63,7 @@ if __name__ == '__main__':
     compare_accuracy_from_two_models(accuracies_dev_1, accuracies_dev_2)
     plt.title("Development")
     plt.savefig("data/reports/metrics_comparison_dev.png", dpi=180)
-    plt.show()
+    plt.close()
 
     # filter out-of-time
     monthly_outcome_out_of_time = monthly_outcome[monthly_outcome.date.between(np.datetime64("2019-08-01"),
@@ -78,7 +78,7 @@ if __name__ == '__main__':
     compare_accuracy_from_two_models(accuracies_out_of_time_1, accuracies_out_of_time_2)
     plt.title("Out-Of-Time")
     plt.savefig("data/reports/metrics_comparison_out_of_time.png", dpi=180)
-    plt.show()
+    plt.close()
 
     # filter post-deployment
     monthly_outcome_post_deployment = monthly_outcome[monthly_outcome.date.gt(np.datetime64("2020-01-01"))]
@@ -92,4 +92,4 @@ if __name__ == '__main__':
     compare_accuracy_from_two_models(accuracies_post_deployment_1, accuracies_post_deployment_2)
     plt.title("Post-Deployment")
     plt.savefig("data/reports/metrics_comparison_post_deployment.png", dpi=180)
-    plt.show()
+    plt.close()
