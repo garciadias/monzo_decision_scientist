@@ -157,7 +157,7 @@ if __name__ == '__main__':
                                                                  index_label="out-of-time")])
 
     # filter post-deployment
-    monthly_outcome_post_deployment = monthly_outcome[monthly_outcome.date.lt(np.datetime64("2020-01-01"))]
+    monthly_outcome_post_deployment = monthly_outcome[monthly_outcome.date.gt(np.datetime64("2020-01-01"))]
     application_post_deployment = application.loc[monthly_outcome_post_deployment.index.unique()]
     y_true_post_deployment = application_post_deployment.is_bad_12m.fillna(0).astype(int)
     score_1_post_deployment = application_post_deployment.model_1

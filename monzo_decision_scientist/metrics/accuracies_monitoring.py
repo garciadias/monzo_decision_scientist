@@ -25,7 +25,7 @@ if __name__ == '__main__':
     application_out_of_time = application.loc[monthly_outcome_out_of_time.index.unique()]
 
     # filter post-deployment
-    monthly_outcome_post_deployment = monthly_outcome[monthly_outcome.date.lt(np.datetime64("2020-01-01"))]
+    monthly_outcome_post_deployment = monthly_outcome[monthly_outcome.date.gt(np.datetime64("2020-01-01"))]
     application_post_deployment = application.loc[monthly_outcome_post_deployment.index.unique()]
 
     y_true_out_of_time = application_out_of_time.is_bad_12m.fillna(0).astype(int)
