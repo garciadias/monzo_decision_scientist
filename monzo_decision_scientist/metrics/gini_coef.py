@@ -123,7 +123,6 @@ def get_limits_grafically(df):
             axis.flatten()[i].get_legend().remove()
     plt.subplots_adjust(left=0.07, right=0.99, bottom=0.07, top=0.99, hspace=0.47, wspace=0.15)
     plt.savefig("data/reports/kdeplot_application_by_is_bad_12m.png", dpi=180)
-    plt.close()
     return variable_splits
 
 
