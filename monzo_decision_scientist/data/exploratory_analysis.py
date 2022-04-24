@@ -1,10 +1,11 @@
 """
-General exploration of the data.
-Here I explore the data, replacing the large negative numbers by NaN values.
-I provide some visializations of the data to
+## Task 1.1: data cleaning
+
+Although we are proud of our data infrastructure, it's always a good practice to sense check and clean up a bit.
+We have left you a few surprises here. Have fun!
 """
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 import sweetviz
 
 from monzo_decision_scientist.definitions import APPLICATION_DTYPES, MONTHLY_OUTCOME_DTYPES
@@ -31,14 +32,14 @@ if __name__ == '__main__':
     monthly_outcome.to_csv("data/clean/monthly_outcome.csv")
 
     monthly_outcome_view = sweetviz.analyze(monthly_outcome)
-    monthly_outcome_view.show_html(filepath="data/reports/monthly_outcome_view.html")
+    monthly_outcome_view.show_html(filepath="data/reports/monthly_outcome_view.html", open_browser=False)
 
     application = pd.read_csv("data/raw/application.csv", index_col=0, na_values=[-999997, -999999.0])
     application = clean_application(application)
     application.to_csv("data/clean/application.csv")
 
     application_view = sweetviz.analyze(application)
-    application_view.show_html(filepath="data/reports/application_view.html")
+    application_view.show_html(filepath="data/reports/application_view.html", open_browser=False)
 
     fig, ax = plt.subplots(figsize=(16*0.8, 9*0.8))
     monthly_outcome.resample(rule='M', on='date')["status"].count().plot.bar(ax=ax, color="#8abb9c")

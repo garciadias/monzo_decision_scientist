@@ -4,10 +4,9 @@ As we want to use our model for loss estimates and pricing of each customer, cou
 (as probabilistic predictions) are accurate with respect to the actual "bad rates" (i.e. the fraction of *is_bad_12m*=1
 among customers of similar scores)
 """
-from sklearn.metrics import balanced_accuracy_score, precision_recall_curve, accuracy_score
+from sklearn.metrics import balanced_accuracy_score, precision_recall_curve
 import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
 import pandas as pd
 
 from monzo_decision_scientist.definitions import APPLICATION_DTYPES, MONTHLY_OUTCOME_DTYPES

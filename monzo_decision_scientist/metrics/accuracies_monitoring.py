@@ -7,6 +7,9 @@ monitoring sample (see definition at the start).
 
 Now let's assume that we have choosen *model_1* and deployed it to production since 1st Jan 2020. On that day, our
 decision engine started to use that model, and since then only approved applications with *model_1*<0.05.
+Task 3.1: model performance
+How did the model perform in this monitoring sample, before & after its deployment into production? How does that
+compare to the expectation from the development sample?
 """
 from sklearn.metrics import balanced_accuracy_score, precision_score, recall_score
 import matplotlib.pyplot as plt

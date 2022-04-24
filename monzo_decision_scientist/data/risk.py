@@ -34,7 +34,7 @@ def indexes_where_is_bad_at(df, months=3, repayment_threshold=2):
     Returns
     -------
     numpy array of booleans
-        For each loan id returns True if the nubmer of repayments exceeded *repayment_threshold* and False otherwise.
+        Return the ids for the loans that the number of repayments exceeded *repayment_threshold*.
     """
     exceed_repayments = df[df.status >= repayment_threshold].copy()
     exceed_repayments.loc[:, ("loan_age")] = (exceed_repayments["date"]-exceed_repayments["origination_date"])
