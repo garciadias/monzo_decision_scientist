@@ -2,6 +2,7 @@ from pandas.core.generic import NDFrame
 
 from tests.test_exploratory_analysis import mock_application
 from monzo_decision_scientist.metrics.gini_coef import gini_score, compare_gini_from_two_models
+from monzo_decision_scientist.metrics.accuracies import balanced_accuracy_threshold
 
 
 def mock_call():
@@ -28,3 +29,11 @@ def test_compare_gini_from_two_models(mock_application):
     assert all(GINI_A.values[0] == [1, 1])
     assert all(GINI_B.values[0] == [0, 1])
     assert GINI_B.index[0] == "Test Gini"
+
+
+def test_balanced_accuracy_score_vs_threshold(mock_application):
+    y_true = mock_application.is_bad_12m.fillna(0)
+    score_1 = mock_application.model_1
+    accuracies = balanced_accuracy_threshold(y_true, score_1)
+    assert isinstance(accuracies, NDFrame)
+    assert accuracies.columns.to_list() == [('balanced_accuracy',), ('precision',), ('recall',)]
