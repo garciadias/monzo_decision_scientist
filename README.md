@@ -11,6 +11,10 @@ Once you have installed Poetry you need to initiate the project:
 poetry init
 ```
 
+```bash
+poetry update
+```
+
 Open a shell with the virtual environment loaded:
 
 ```bash
