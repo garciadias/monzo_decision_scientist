@@ -48,7 +48,7 @@ def compare_gini_from_two_models(y_true, score_1, score_2, index_label="Gini coe
     return GINI
 
 
-def plot_comparison_gini_comparison(y_true, score_1, score_2):
+def plot_gini_comparison(y_true, score_1, score_2):
     ROC_FPR_MODEL_1, ROC_TPR_MODEL_1, ROC_THRESHOLDS_MODEL_1 = roc_curve(y_true, score_1)
     ROC_FPR_MODEL_2, ROC_TPR_MODEL_2, ROC_THRESHOLDS_MODEL_2 = roc_curve(y_true, score_2)
     PRECISION_MODEL_1, RECALL_MODEL_1, PR_THRESHOLDS_MODEL_1 = precision_recall_curve(y_true, score_1)
@@ -139,7 +139,7 @@ if __name__ == '__main__':
     score_2 = application_dev.model_2
 
     GINI_ALL = compare_gini_from_two_models(y_true, score_1, score_2, index_label="development")
-    plot_comparison_gini_comparison(y_true, score_1, score_2)
+    plot_gini_comparison(y_true, score_1, score_2)
     plt.savefig("data/reports/Ginis_coefficient.png", dpi=180)
     plt.close()
 

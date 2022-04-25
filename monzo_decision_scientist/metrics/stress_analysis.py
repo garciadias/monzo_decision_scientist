@@ -31,6 +31,8 @@ if __name__ == '__main__':
 
     sns.heatmap(application_stress[["stress_score", "is_bad_12m", "model_1"]].corr(),
                 cmap="Reds_r", annot=True, square=True)
+    plt.savefig("data/reports/correlation_stress.png", dpi=180)
+    plt.close()
 
     # implement simple ideas for using the stress_score
     y_true = application_stress["is_bad_12m"]
